@@ -14,8 +14,13 @@ public class Main {
 
         System.out.println("Total of products: " + inventory.size());
 
-        Product foundProduct = inventory.get(2);
-        System.out.println("Found product: " + foundProduct.getName());
+        Product foundProduct = inventory.get(99);
+        if (foundProduct != null) {
+            System.out.println("Found product: " + foundProduct.getName());
+        } else {
+            System.out.println("Product not found. ");
+        }
+
 
     }
 }
