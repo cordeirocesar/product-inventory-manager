@@ -4,23 +4,29 @@ public class Main {
 
     static void main(String[] args) {
 
-        HashMap<Integer, Product> inventory = new HashMap<>();
+     Inventory inventory = new Inventory();
 
-        Product keyboard = new Product(1,"Keyboard",10);
-        Product mouse = new Product(2,"Mouse",25);
+     Product keyboard = new Product(1,"keyboard",10);
+     Product mouse = new Product(2,"mouse",25);
 
-        inventory.put(keyboard.getId(), keyboard);
-        inventory.put(mouse.getId(), mouse);
+     inventory.addProduct(keyboard);
+     inventory.addProduct(mouse);
 
-        System.out.println("Total of products: " + inventory.size());
+        System.out.println("Total of products: " + inventory.getProductCount());
 
-        Product foundProduct = inventory.get(99);
+        Product foundProduct = inventory.findProductById(1);
+
         if (foundProduct != null) {
             System.out.println("Found product: " + foundProduct.getName());
-        } else {
-            System.out.println("Product not found. ");
+        } else  {
+            System.out.println("Product not found");
         }
 
+        Product missingProduct = inventory.findProductById(99);
+
+        if (missingProduct == null) {
+            System.out.println("Product not found");
+        }
 
     }
 }
