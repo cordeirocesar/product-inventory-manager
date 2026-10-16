@@ -45,6 +45,17 @@ public class Main {
         boolean missingUpdated = inventory.updateProduct(unknownProduct);
         System.out.println(missingUpdated);
 
+        boolean removed =  inventory.removeProduct(2);
+        System.out.println(removed);
+
+        System.out.println(inventory.getProductCount());
+
+        boolean removedAgain = inventory.removeProduct(2);
+        System.out.println(removedAgain);
+
+        Product removedProduct = inventory.findProductById(2);
+        System.out.println(removedProduct == null);
+
 
         System.out.println("Total of products: " + inventory.getProductCount());
 

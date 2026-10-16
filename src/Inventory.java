@@ -21,6 +21,15 @@ public class Inventory {
         return true;
     }
 
+    public boolean removeProduct(int id) {
+        if(!products.containsKey(id)) {
+            return false;
+        }
+
+        products.remove(id);
+        return true;
+    }
+
     public Product findProductById(int id) {
         return products.get(id);
     }
