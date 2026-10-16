@@ -62,5 +62,15 @@ public class Main {
 
         System.out.println("Total of products: " + inventory.getProductCount());
 
+        Product invalidId = new Product(0, "keyboard", 10);
+        Product invalidName = new Product(4, "   ", 5);
+        Product invalidQuantity = new Product(5, "mouse", -3);
+
+        System.out.println(inventory.addProduct(invalidId));
+        System.out.println(inventory.addProduct(invalidName));
+        System.out.println(inventory.addProduct(invalidQuantity));
+        System.out.println(inventory.addProduct(null));
+
+        System.out.println("Total of products: " + inventory.getProductCount());
     }
 }

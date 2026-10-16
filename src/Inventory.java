@@ -5,6 +5,19 @@ public class Inventory {
     private HashMap<Integer, Product> products = new HashMap<>();
 
     public boolean addProduct(Product product) {
+        if(product == null) {
+            System.out.println("Product not found");
+            return false;
+        } else if(product.getId() <= 0) {
+            System.out.println("Product id must be greater than zero");
+            return false;
+        } else if(product.getName() == null || product.getName().isBlank()) {
+            System.out.println("Product name is empty");
+            return false;
+        } else if(product.getQuantity() < 0) {
+            System.out.println("Product quantity cannot be negative");
+            return false;
+        }
         if(products.containsKey(product.getId())) {
             return false;
         }
