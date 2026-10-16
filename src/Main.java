@@ -1,6 +1,6 @@
 public class Main {
 
-    static void main(String[] args) {
+    public static void main(String[] args) {
 
      Inventory inventory = new Inventory();
 
@@ -72,5 +72,15 @@ public class Main {
         System.out.println(inventory.addProduct(null));
 
         System.out.println("Total of products: " + inventory.getProductCount());
+
+        Product updateProduct = new Product(1,"Keyboard Gamer", 15);
+        System.out.println(inventory.updateProduct(updateProduct));
+        inventory.listProducts();
+
+        Product invalidUpdate = new Product(1, "Keyboard Gamer", -5);
+
+        System.out.println(inventory.updateProduct(invalidUpdate));
+        inventory.listProducts();
+
     }
 }
