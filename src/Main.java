@@ -56,6 +56,9 @@ public class Main {
         Product removedProduct = inventory.findProductById(2);
         System.out.println(removedProduct == null);
 
+        System.out.println("Products in inventory:");
+        inventory.listProducts();
+
 
         System.out.println("Total of products: " + inventory.getProductCount());
 
