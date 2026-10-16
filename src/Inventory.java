@@ -38,6 +38,11 @@ public class Inventory {
     }
 
     public void listProducts() {
+
+        if(products.isEmpty()) {
+            System.out.println("No products found in inventory.");
+            return;
+        }
         for(Product product : products.values()) {
             System.out.println("Product ID: " + product.getId());
             System.out.println("Product Name: " + product.getName());
