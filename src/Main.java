@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class Main {
 
     static void main(String[] args) {
@@ -36,6 +34,17 @@ public class Main {
         System.out.println(secondAdd);
 
         System.out.println(inventory.findProductById(3).getName());
+
+        boolean updated = inventory.updateProduct(anotherProduct);
+        System.out.println(updated);
+
+        Product updatedProduct = inventory.findProductById(3);
+        System.out.println(updatedProduct.getName());
+
+        Product unknownProduct = new Product(99,"unknown",50);
+        boolean missingUpdated = inventory.updateProduct(unknownProduct);
+        System.out.println(missingUpdated);
+
 
         System.out.println("Total of products: " + inventory.getProductCount());
 
