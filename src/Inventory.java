@@ -5,17 +5,7 @@ public class Inventory {
     private HashMap<Integer, Product> products = new HashMap<>();
 
     public boolean addProduct(Product product) {
-        if(product == null) {
-            System.out.println("Product cannot be null");
-            return false;
-        } else if(product.getId() <= 0) {
-            System.out.println("Product id must be greater than zero");
-            return false;
-        } else if(product.getName() == null || product.getName().isBlank()) {
-            System.out.println("Product name is empty");
-            return false;
-        } else if(product.getQuantity() < 0) {
-            System.out.println("Product quantity cannot be negative");
+        if(!isValidProduct(product)) {
             return false;
         }
         if(products.containsKey(product.getId())) {
@@ -26,23 +16,13 @@ public class Inventory {
     }
 
     public boolean updateProduct(Product product) {
-        if(product == null) {
-            System.out.println("Product cannot be null");
+        if(!isValidProduct(product)) {
             return false;
-        } else if(product.getId() <= 0) {
-            System.out.println("Product id must be greater than zero");
-            return false;
-        } else if(product.getName() == null || product.getName().isBlank()) {
-            System.out.println("Product name cannot be null");
-            return false;
-        } else if(product.getQuantity() < 0) {
-            System.out.println("Product quantity cannot be negative");
-            return false;
-        } else if(!products.containsKey(product.getId())) {
+        }
+        if(!products.containsKey(product.getId())) {
             System.out.println("Product does not exist");
             return false;
         }
-
         products.put(product.getId(), product);
         return true;
 
@@ -71,5 +51,18 @@ public class Inventory {
 
     public int getProductCount() {
         return products.size();
+    }
+
+    private boolean isValidProduct(Product product) {
+        if(product == null) {
+            return false;
+        } if(product.getId() <= 0){
+            return false;
+        } if(product.getName() == null || product.getName().isBlank()) {
+            return false;
+        } if(product.getQuantity() < 0) {
+            return false;
+        }
+        return true;
     }
 }
