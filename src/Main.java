@@ -8,11 +8,12 @@ public class Main {
 
      Product keyboard = new Product(1,"keyboard",10);
      Product mouse = new Product(2,"mouse",25);
+     Product monitor = new Product(3,"monitor",150);
+     Product anotherProduct = new Product(3,"gaming monitor",300);
 
      inventory.addProduct(keyboard);
      inventory.addProduct(mouse);
 
-        System.out.println("Total of products: " + inventory.getProductCount());
 
         Product foundProduct = inventory.findProductById(1);
 
@@ -27,6 +28,16 @@ public class Main {
         if (missingProduct == null) {
             System.out.println("Product not found");
         }
+
+        boolean firstAdd = inventory.addProduct(monitor);
+        System.out.println(firstAdd);
+
+        boolean secondAdd = inventory.addProduct(anotherProduct);
+        System.out.println(secondAdd);
+
+        System.out.println(inventory.findProductById(3).getName());
+
+        System.out.println("Total of products: " + inventory.getProductCount());
 
     }
 }
